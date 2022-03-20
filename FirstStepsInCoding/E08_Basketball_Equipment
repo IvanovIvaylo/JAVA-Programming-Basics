@@ -1,0 +1,26 @@
+package ProgrammingBasicswithJava_Jan2022.Exercise.Ex_01_First_Steps_In_Coding;
+
+import java.util.Scanner;
+
+public class E08_Basketball_Equipment {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        //Годишната такса за тренировки по баскетбол – цяло число в интервала [0… 9999]
+        int annualFee = Integer.parseInt(scanner.nextLine());
+
+        //•	Баскетболни кецове – цената им е 40% по-малка от таксата за една година
+        double shoes = annualFee - (annualFee * 0.40);
+        //•	Баскетболен екип – цената му е 20% по-евтина от тази на кецовете
+        double outfit = shoes - (shoes * 0.20);
+        //•	Баскетболна топка – цената ѝ е 1 / 4 от цената на баскетболния екип
+        double ball = outfit / 4;
+        //•	Баскетболни аксесоари – цената им е 1 / 5 от цената на баскетболната топка
+        double accessories = ball / 5;
+
+        double totalSum = annualFee + shoes + outfit + ball + accessories;
+
+        System.out.println(totalSum);
+
+    }
+}
