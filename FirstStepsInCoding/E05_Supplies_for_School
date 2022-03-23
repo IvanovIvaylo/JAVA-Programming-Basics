@@ -1,0 +1,34 @@
+package ProgrammingBasicswithJava_Jan2022.Exercise.Ex_01_First_Steps_In_Coding;
+
+import java.util.Scanner;
+
+public class E05_Supplies_for_School {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        //Вход
+        //•	Брой пакети химикали - цяло число в интервала [0...100]
+        //•	Брой пакети маркери - цяло число в интервала [0...100]
+        //•	Литри препарат за почистване на дъска - цяло число в интервала [0…50]
+        //•	Процент намаление - цяло число в интервала [0...100]
+
+        int numPensPackage = Integer.parseInt(scanner.nextLine());
+        int numMarkersPackage = Integer.parseInt(scanner.nextLine());
+        int litresBoardCleaner = Integer.parseInt(scanner.nextLine());
+        int discount = Integer.parseInt(scanner.nextLine());
+
+        double pricePensPackage = 5.80;
+        double priceMarkersPackage = 7.20;
+        double priceBoardCleaner = 1.20;
+
+        double totalPricePen = numPensPackage * pricePensPackage;
+        double totalPriceMarkers =  numMarkersPackage * priceMarkersPackage;
+        double totalPriceBoardCleaner = litresBoardCleaner * priceBoardCleaner;
+
+        double totalSum = totalPricePen + totalPriceMarkers + totalPriceBoardCleaner;
+
+        double sum_With_Included_Discount = totalSum - (totalSum * discount / 100);
+
+        System.out.println(sum_With_Included_Discount);
+    }
+}
