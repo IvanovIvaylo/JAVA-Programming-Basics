@@ -1,0 +1,33 @@
+package ProgrammingBasicswithJava_Jan2022.Exercise.Ex_01_First_Steps_In_Coding;
+
+import java.util.Scanner;
+
+public class E07_Food_Delivery {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        //•	Брой пилешки менюта – цяло число в интервала [0 … 99]
+        //•	Брой менюта с риба – цяло число в интервала [0 … 99]
+        //•	Брой вегетариански менюта – цяло число в интервала [0 … 99]
+
+        int chickenMenu = Integer.parseInt(scanner.nextLine());
+        int fishMenu = Integer.parseInt(scanner.nextLine());
+        int vegMenu = Integer.parseInt(scanner.nextLine());
+
+
+        double totalPriceChickenMenu = chickenMenu * 10.35;     // Пилешко меню –  10.35 лв.
+        double totalPriceFishMenu = fishMenu * 12.40;         // Меню с риба – 12.40 лв
+        double totalPriceVegMenu = vegMenu * 8.15;          // Вегетарианско меню  – 8.15 лв.
+
+        double sumMenusPrice = totalPriceChickenMenu + totalPriceFishMenu + totalPriceVegMenu;
+
+        double dessertPrice = sumMenusPrice * 0.20;
+        double deliveryPrice = 2.50;
+
+        double orderSum = sumMenusPrice + dessertPrice + deliveryPrice;
+
+        System.out.println(orderSum);
+
+
+    }
+}
