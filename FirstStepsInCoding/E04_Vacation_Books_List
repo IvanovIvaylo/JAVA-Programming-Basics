@@ -1,0 +1,26 @@
+package ProgrammingBasicswithJava_Jan2022.Exercise.Ex_01_First_Steps_In_Coding;
+
+import java.util.Scanner;
+
+public class E04_Vacation_Books_List {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        //1.	Брой страници в текущата книга – цяло число в интервала [1…1000]
+        //2.	Страници, които прочита за 1 час – цяло число в интервала [1…1000]
+        //3.	Броят на дните, за които трябва да прочете книгата – цяло число в интервала [1…1000]
+
+        int numberOfBookPages = Integer.parseInt(scanner.nextLine());
+        int pagesReadPerHour = Integer.parseInt(scanner.nextLine());
+        int numberOfDaysForReading = Integer.parseInt(scanner.nextLine());
+
+        //Общо време за четене на книгата: общия брпй на страниците на книгата / страници за час = общото време за прочитане на книгата
+        int totalBookReadingTime = numberOfBookPages / pagesReadPerHour;
+        //Необходимите часове на ден: часа / дни = часа на ден
+        int hoursPerDay = totalBookReadingTime / numberOfDaysForReading;
+
+        System.out.println(hoursPerDay);
+
+
+    }
+}
