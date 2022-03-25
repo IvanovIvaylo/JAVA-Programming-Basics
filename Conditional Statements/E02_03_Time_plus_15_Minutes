@@ -1,0 +1,22 @@
+package ProgrammingBasicswithJava_Jan2022.Exercise.Ex_02_Conditional_Statements;
+
+import java.util.Scanner;
+
+public class E02_03_Time_plus_15_Minutes {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int hour = Integer.parseInt(scanner.nextLine());
+        int min = Integer.parseInt(scanner.nextLine());
+
+        int totalMinutes = hour * 60 + min + 15;
+
+        int hours = totalMinutes / 60;
+        int minutes = totalMinutes % 60;
+
+        if (hours > 23) {
+            hours = 0;
+        }
+        System.out.printf("%d:%02d", hours, minutes);
+    }
+}
