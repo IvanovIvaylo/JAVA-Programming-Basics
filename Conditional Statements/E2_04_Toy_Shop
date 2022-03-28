@@ -1,0 +1,56 @@
+package ProgrammingBasicswithJava_Jan2022.Exercise.Ex_02_Conditional_Statements;
+
+import java.util.Scanner;
+
+public class E2_04_Toy_Shop {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        //1.	Цена на екскурзията - реално число в интервала [1.00 … 10000.00]
+        //2.	Брой пъзели - цяло число в интервала [0… 1000]
+        //3.	Брой говорещи кукли - цяло число в интервала [0 … 1000]
+        //4.	Брой плюшени мечета - цяло число в интервала [0 … 1000]
+        //5.	Брой миньони - цяло число в интервала [0 … 1000]
+        //6.	Брой камиончета - цяло число в интервала [0 … 1000]
+
+        double holidayPrice = Double.parseDouble(scanner.nextLine());
+        int puzzleCount = Integer.parseInt(scanner.nextLine());
+        int dollsCount = Integer.parseInt(scanner.nextLine());
+        int teddyCount = Integer.parseInt(scanner.nextLine());
+        int minionsCount = Integer.parseInt(scanner.nextLine());
+        int trucksCount = Integer.parseInt(scanner.nextLine());
+
+        int allToys = puzzleCount + dollsCount + teddyCount + minionsCount + trucksCount;
+
+        double pricePuzzle = 2.60;
+        double priceDoll = 3.00;
+        double priceTeddy = 4.10;
+        double priceMinion = 8.20;
+        double priceTruck = 2.00;
+
+        double allToysSum = (puzzleCount * pricePuzzle) +
+                (dollsCount * priceDoll) +
+                (teddyCount * priceTeddy) +
+                (minionsCount * priceMinion) +
+                (trucksCount * priceTruck);
+
+        double totalSum = 0;
+        if (allToys >= 50) {
+            totalSum = allToysSum * 0.75; //Ако поръчаните играчки са 50 или повече магазинът прави отстъпка 25% от общата цена.
+        } else {
+            totalSum = allToysSum;
+        }
+
+        double rent = totalSum * 0.10;  // От спечелените пари Петя трябва да даде 10% за наема на магазина.
+
+        double earnedMoney = totalSum - rent;
+
+        // Да се пресметне дали парите ще ѝ стигнат да отиде на екскурзия.
+        double difference = Math.abs(earnedMoney - holidayPrice);
+        if (earnedMoney >= holidayPrice) {
+            System.out.printf("Yes! %.2f lv left.",difference );
+        } else {
+            System.out.printf("Not enough money! %.2f lv needed.", difference);
+        }
+    }
+}
