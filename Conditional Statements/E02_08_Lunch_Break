@@ -1,0 +1,32 @@
+package ProgrammingBasicswithJava_Jan2022.Exercise.Ex_02_Conditional_Statements;
+
+import java.util.Scanner;
+
+public class E02_08_Lunch_Break {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        //1.	Име на сериал – текст
+        //2.	Продължителност на епизод  – цяло число в диапазона [10… 90]
+        //3.	Продължителност на почивката  – цяло число в диапазона [10… 120]
+        String movieName = scanner.nextLine();
+        int movieEpisodeTime = Integer.parseInt(scanner.nextLine());
+        int lunchBreakTime = Integer.parseInt(scanner.nextLine());
+
+        // По време на почивката отделяте време за обяд и време за отдих.
+        // Времето за обяд ще бъде 1/8 от времето за почивка, а времето за отдих ще бъде 1/4 от времето за почивка.
+        double lunchTime = lunchBreakTime / 8.0;
+        double restTime = lunchBreakTime / 4.0;
+
+        double timeLeftForMovieWatching = lunchBreakTime - lunchTime - restTime;
+
+
+        double difference = Math.abs(timeLeftForMovieWatching - movieEpisodeTime);
+        if (timeLeftForMovieWatching >= movieEpisodeTime) {
+            System.out.printf("You have enough time to watch %s and left with %.0f minutes free time.", movieName, Math.ceil(difference));
+        } else {
+            System.out.printf("You don't have enough time to watch %s, you need %.0f more minutes.", movieName, Math.ceil(difference));
+        }
+    }
+}
+
