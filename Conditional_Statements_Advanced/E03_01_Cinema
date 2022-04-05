@@ -1,0 +1,34 @@
+package ProgrammingBasicswithJava_Jan2022.Exercise.Ex_03_Conditional_Statements_Advanced;
+
+import java.util.Scanner;
+
+public class E03_01_Cinema {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        //вход
+        String projectionType = scanner.nextLine();
+        int r = Integer.parseInt(scanner.nextLine());
+        int c = Integer.parseInt(scanner.nextLine());
+
+        //изчисления
+        double ticketPrice = 0;
+        switch (projectionType) {
+            case "Premiere":
+                ticketPrice = 12.00;
+                break;
+            case "Normal":
+                ticketPrice = 7.50;
+                break;
+            case "Discount":
+                ticketPrice = 5.00;
+                break;
+        }
+
+        double incomeAllTickets = r * c * ticketPrice;
+
+        //изход
+        System.out.printf("%.2f", incomeAllTickets);
+    }
+}
