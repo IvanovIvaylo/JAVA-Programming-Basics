@@ -1,0 +1,64 @@
+package ProgrammingBasicswithJava_Jan2022.Exercise.Ex_03_Conditional_Statements_Advanced;
+
+import java.util.Scanner;
+
+public class E03_07_Hotel_Room {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String month = scanner.nextLine();
+        int nightsCount = Integer.parseInt(scanner.nextLine());
+
+        double priceStudio = 0;
+        double priceApartment = 0;
+
+        switch (month) {
+            case "May":
+            case "October":
+                priceStudio = 50;
+                priceApartment = 65;
+                if (nightsCount > 7 && nightsCount <= 14) {
+                    priceStudio = priceStudio * 0.95;
+                    priceApartment = priceApartment * 1;
+                } else if (nightsCount > 14) {
+                    priceStudio = priceStudio * 0.70;
+                    priceApartment = priceApartment * 0.90;
+                } else {
+                    priceStudio = priceStudio * 1;
+                    priceApartment = priceApartment * 1;
+                }
+                break;
+            case "June":
+            case "September":
+                priceStudio = 75.20;
+                priceApartment = 68.70;
+                if (nightsCount > 14) {
+                    priceStudio = priceStudio * 0.80;
+                    priceApartment = priceApartment * 0.90;
+                } else {
+                    priceStudio = priceStudio * 1;
+                    priceApartment = priceApartment * 1;
+                }
+                break;
+            case "July":
+            case "August":
+                priceStudio = 76.00;
+                priceApartment = 77.00;
+                if (nightsCount > 14) {
+                    priceStudio = priceStudio * 1;
+                    priceApartment = priceApartment * 0.90;
+                } else {
+                    priceStudio = priceStudio * 1;
+                    priceApartment = priceApartment * 1;
+                }
+                break;
+        }
+
+        double totalStudio = nightsCount * priceStudio;
+        double totalApartment = nightsCount * priceApartment;
+
+        System.out.printf("Apartment: %.2f lv.%n", totalApartment);
+        System.out.printf("Studio: %.2f lv.", totalStudio);
+
+    }
+}
