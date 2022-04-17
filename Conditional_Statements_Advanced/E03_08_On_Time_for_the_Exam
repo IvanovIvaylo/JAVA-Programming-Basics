@@ -1,0 +1,52 @@
+package ProgrammingBasicswithJava_Jan2022.Exercise.Ex_03_Conditional_Statements_Advanced;
+
+import java.util.Scanner;
+
+public class E03_08_On_Time_for_the_Exam {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        //•	Първият ред съдържа час на изпита – цяло число от 0 до 23.
+        //•	Вторият ред съдържа минута на изпита – цяло число от 0 до 59.
+        //•	Третият ред съдържа час на пристигане – цяло число от 0 до 23.
+        //•	Четвъртият ред съдържа минута на пристигане – цяло число от 0 до 59
+
+        int examTimeHour = Integer.parseInt(scanner.nextLine());
+        int examTimeMinutes = Integer.parseInt(scanner.nextLine());
+        int arrivalTimeHour = Integer.parseInt(scanner.nextLine());
+        int arrivalTimeMinutes = Integer.parseInt(scanner.nextLine());
+
+        int examTime = examTimeHour * 60 + examTimeMinutes;
+        int arrivalTime = arrivalTimeHour * 60 + arrivalTimeMinutes;
+
+        int differance = Math.abs(arrivalTime - examTime);
+        //exam -> 9:30 = 9 * 60 +30 = 570
+        //arrival -> 9:50 = 9 * 60 +30 = 590
+        if (arrivalTime > examTime) {
+            System.out.println("Late");
+            if (differance >= 60) {
+                int hour = differance / 60;
+                int min = differance % 60;
+                System.out.printf("%d:%02d hours after the start", hour, min);
+            } else {
+                System.out.printf("%d minutes after the start", differance);
+            }
+
+        } else if (arrivalTime == examTime || differance <= 30) {
+            System.out.println("On time");
+            if (differance >= 1 && differance <= 30) {
+                System.out.printf("%d minutes before the start", differance);
+            }
+
+        } else {
+            System.out.println("Early");
+            if (differance >= 60) {
+                int hour = differance / 60;
+                int min = differance % 60;
+                System.out.printf("%d:%02d hours before the start", hour, min);
+            } else {
+                System.out.printf("%d minutes before the start", differance);
+            }
+        }
+    }
+}
