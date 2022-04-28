@@ -1,0 +1,38 @@
+package ProgrammingBasicswithJava_Jan2022.Exercise.Ex_04_For_Loop;
+
+import java.util.Scanner;
+
+public class E04_04_Clever_Lily {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int age = Integer.parseInt(scanner.nextLine());
+        double washingMachinePrice = Double.parseDouble(scanner.nextLine());
+        int toyPrice = Integer.parseInt(scanner.nextLine());
+
+        int toyCount = 0;
+        int money = 0;
+        int allMoney = 0;
+        int brotherCount = 0;
+        for (int i = 1; i <= age; i++) {
+
+            if (i % 2 != 0) {
+               toyCount++;
+            } else {
+                money = money + 10;
+                brotherCount++;
+                allMoney = allMoney + money;
+            }
+
+        }
+        double sumToys = toyCount * toyPrice;
+        double savedMoney = allMoney + sumToys - brotherCount;
+
+        double diff = Math.abs(savedMoney - washingMachinePrice);
+        if (savedMoney >= washingMachinePrice) {
+            System.out.printf("Yes! %.2f", diff );
+        } else {
+            System.out.printf("No! %.2f", diff );
+        }
+    }
+}
