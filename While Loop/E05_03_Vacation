@@ -1,0 +1,49 @@
+package ProgrammingBasicswithJava_Jan2022.Exercise.Ex_05_While_Loop;
+
+import java.util.Scanner;
+
+public class E05_03_Vacation {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double neededMoney = Double.parseDouble(scanner.nextLine());
+        double ownedMoney = Double.parseDouble(scanner.nextLine());
+
+        double totalMoney = ownedMoney;
+
+        int spendingCounter = 0;
+        int daysCounter = 0;
+
+        while (totalMoney < neededMoney) {
+
+            if (spendingCounter == 5) {
+                break;
+            }
+
+            String action = scanner.nextLine();
+            double amount = Double.parseDouble(scanner.nextLine());
+
+
+            if (action.equals("spend")) {
+                totalMoney = totalMoney - amount;
+                spendingCounter += 1;
+                if (totalMoney < 0) {
+                    totalMoney = 0;
+                }
+            } else if (action.equals("save")) {
+                totalMoney = totalMoney + amount;
+                spendingCounter = 0;
+            }
+
+            daysCounter++;
+        }
+
+        if (spendingCounter == 5) {
+            System.out.printf("You can't save the money.%n" + daysCounter);
+        }
+
+        if (totalMoney >= neededMoney) {
+            System.out.printf("You saved the money for %d days.", daysCounter);
+        }
+    }
+}
