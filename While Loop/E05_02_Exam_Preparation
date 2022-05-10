@@ -1,0 +1,46 @@
+package ProgrammingBasicswithJava_Jan2022.Exercise.Ex_05_While_Loop;
+
+import java.util.Scanner;
+
+public class E05_02_Exam_Preparation {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int countUnsatisfactoryGrades = Integer.parseInt(scanner.nextLine());
+
+        int countFailedTimes = 0;
+
+        int sumGrades = 0;
+        int countGrades = 0;
+        String lastTask = "";
+
+        boolean isFailed = false;
+
+        String input = scanner.nextLine();
+        while (!input.equals("Enough")) {
+            String currentTaskName = input;
+            int grade = Integer.parseInt(scanner.nextLine());
+
+            if (grade <= 4) {
+                countFailedTimes++;
+                if (countFailedTimes == countUnsatisfactoryGrades) {
+                    isFailed = true;
+                    break;
+                }
+            }
+
+            countGrades++;
+            sumGrades += grade;
+            lastTask = currentTaskName;
+            input = scanner.nextLine();
+        }
+
+        if (isFailed) {
+            System.out.printf("You need a break, %d poor grades.", countFailedTimes);
+        } else {
+            System.out.printf("Average score: %.2f%n", sumGrades * 1.0 / countGrades);
+            System.out.printf("Number of problems: %d%n", countGrades);
+            System.out.printf("Last problem: %s%n", lastTask);
+        }
+    }
+}
