@@ -1,0 +1,37 @@
+package ProgrammingBasicswithJava_Jan2022.Exercise.Ex_06_Nested_Loops;
+
+import java.util.Scanner;
+
+public class L06_02_Equal_Sums_Even_Odd_Position_3 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int numOne = Integer.parseInt(scanner.nextLine());
+        int numTwo = Integer.parseInt(scanner.nextLine());
+
+        int currentNum = 0;
+        for (int i = numOne; i <= numTwo; i++) {
+            currentNum = i;
+
+            int evenSum = 0;
+            int oddSum = 0;
+            for (int j = 6; j >= 1; j--) {
+
+                int digit = currentNum % 10;
+
+                if (j % 2 == 0) {
+                    evenSum += digit;
+                } else {
+                    oddSum += digit;
+                }
+
+                currentNum = currentNum / 10;
+
+            }
+            if (evenSum == oddSum) {
+                System.out.print(i + " ");
+            }
+
+        }
+    }
+}
