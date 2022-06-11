@@ -1,0 +1,30 @@
+package ProgrammingBasicswithJava_Jan2022.Exercise.Ex_06_Nested_Loops;
+
+import java.util.Scanner;
+
+public class L06_02_Equal_Sums_Even_Odd_Position_2 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int numOne = Integer.parseInt(scanner.nextLine());
+        int numTwo = Integer.parseInt(scanner.nextLine());
+
+        int currentNum = 0;
+        for (int i = numOne; i <= numTwo; i++) {
+            currentNum = i;
+
+            int one = currentNum / 100000;
+            int two = (currentNum / 10000) % 10;
+            int three = (currentNum / 1000) % 10;
+            int four = (currentNum / 100) % 10;
+            int five = (currentNum / 10) % 10;
+            int six = currentNum % 10;
+
+
+            if ((one + three + five) == (two + four + six)) {
+                System.out.print(currentNum + " ");
+            }
+
+        }
+    }
+}
