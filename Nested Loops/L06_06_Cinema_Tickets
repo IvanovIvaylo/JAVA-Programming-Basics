@@ -1,0 +1,60 @@
+package ProgrammingBasicswithJava_Jan2022.Exercise.Ex_06_Nested_Loops;
+
+import java.util.Scanner;
+
+public class L06_06_Cinema_Tickets {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int countAllTickets = 0;
+        int standard = 0;
+        int student = 0;
+        int kid = 0;
+        String input = scanner.nextLine();
+        while (!input.equals("Finish")) {
+            String movieName = input;
+            int availablePlaces = Integer.parseInt(scanner.nextLine());
+
+            int countCurrentTicket = 0;
+            String command = scanner.nextLine();
+            while (!command.equals("End")) {
+                String ticket = command;
+                countCurrentTicket++;
+                countAllTickets++;
+
+                switch (ticket) {
+                    case "standard":
+                        standard++;
+                        break;
+                    case "student":
+                        student++;
+                        break;
+                    case "kid":
+                        kid++;
+                        break;
+                }
+
+                if (countCurrentTicket >= availablePlaces) {
+                    break;
+                }
+
+                command = scanner.nextLine();
+            }
+
+            System.out.printf("%s - %.2f%% full.%n"
+                    , movieName, countCurrentTicket * 1.0 / availablePlaces * 100);
+
+
+            input = scanner.nextLine();
+
+
+        }
+
+        System.out.printf("Total tickets: %d%n", countAllTickets);
+        System.out.printf("%.2f%% student tickets.%n", student * 1.0 / countAllTickets * 100);
+        System.out.printf("%.2f%% standard tickets.%n", standard * 1.0 / countAllTickets * 100);
+        System.out.printf("%.2f%% kids tickets.%n", kid * 1.0 / countAllTickets * 100);
+
+
+    }
+}
