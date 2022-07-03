@@ -1,0 +1,36 @@
+package ProgrammingBasicswithJava_Jan2022.Exercise.Ex_06_Nested_Loops;
+
+import java.util.Scanner;
+
+public class L06_04_Train_The_Trainers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int evaluators = Integer.parseInt(scanner.nextLine());
+
+        double sumAllGrades = 0;
+        int countAllGrades = 0;
+
+        String input = scanner.nextLine();
+        while (!input.equals("Finish")) {
+            String presentation = input;
+
+            double sumCurrentGrades = 0;
+            for (int i = 1; i <= evaluators ; i++) {
+                double currentGrade = Double.parseDouble(scanner.nextLine());
+                countAllGrades++;
+                sumCurrentGrades += currentGrade;
+            }
+            
+            double avgCurrentGrades = sumCurrentGrades / evaluators;
+            System.out.printf("%s - %.2f.%n",presentation,  avgCurrentGrades);
+
+            sumAllGrades += sumCurrentGrades;
+
+            input = scanner.nextLine();
+        }
+
+        System.out.printf("Student's final assessment is %.2f.%n",sumAllGrades /countAllGrades );
+
+    }
+}
